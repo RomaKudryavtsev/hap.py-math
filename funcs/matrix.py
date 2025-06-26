@@ -22,6 +22,44 @@ def determinant(matrix, sym_res: bool | None = False):
         return numpy.linalg.det(numpy_matrix)
 
 
+def sum(matrix_a, matrix_b, sym_res: bool | None = False):
+    if not isinstance(matrix_a, (list, numpy.ndarray)) or not isinstance(
+        matrix_b, (list, numpy.ndarray)
+    ):
+        raise ValueError("Both inputs must be lists or numpy arrays.")
+    matrix_a = numpy.array(matrix_a)
+    matrix_b = numpy.array(matrix_b)
+    if matrix_a.shape != matrix_b.shape:
+        raise ValueError("Both matrices must have the same dimensions.")
+    if sym_res:
+        sympy_matrix_a = sympy.Matrix(matrix_a)
+        sympy_matrix_b = sympy.Matrix(matrix_b)
+        return sympy_matrix_a + sympy_matrix_b
+    else:
+        numpy_matrix_a = numpy.array(matrix_a)
+        numpy_matrix_b = numpy.array(matrix_b)
+        return numpy_matrix_a + numpy_matrix_b
+
+
+def subtract(matrix_a, matrix_b, sym_res: bool | None = False):
+    if not isinstance(matrix_a, (list, numpy.ndarray)) or not isinstance(
+        matrix_b, (list, numpy.ndarray)
+    ):
+        raise ValueError("Both inputs must be lists or numpy arrays.")
+    matrix_a = numpy.array(matrix_a)
+    matrix_b = numpy.array(matrix_b)
+    if matrix_a.shape != matrix_b.shape:
+        raise ValueError("Both matrices must have the same dimensions.")
+    if sym_res:
+        sympy_matrix_a = sympy.Matrix(matrix_a)
+        sympy_matrix_b = sympy.Matrix(matrix_b)
+        return sympy_matrix_a - sympy_matrix_b
+    else:
+        numpy_matrix_a = numpy.array(matrix_a)
+        numpy_matrix_b = numpy.array(matrix_b)
+        return numpy_matrix_a - numpy_matrix_b
+
+
 def multiply(matrix_a, matrix_b, sym_res: bool | None = False):
     if not isinstance(matrix_a, (list, numpy.ndarray)) or not isinstance(
         matrix_b, (list, numpy.ndarray)
