@@ -1,6 +1,7 @@
 import sympy
 
 
+# TODO - adapt to work with column / row vectors
 def parse_list_from_str(arg_str: str, sym_args: bool | None = False) -> list:
     trimmed = arg_str.replace(" ", "")
     if trimmed.startswith("[") and trimmed.endswith("]"):
@@ -13,6 +14,7 @@ def parse_list_from_str(arg_str: str, sym_args: bool | None = False) -> list:
     )
 
 
+# TODO - adapt to work with column / row vectors
 def parse_2d_list_from_str(arg_str: str, sym_args: bool | None = False) -> list:
     trimmed = arg_str.replace(" ", "")
     if trimmed.startswith("[") and trimmed.endswith("]"):
