@@ -78,3 +78,18 @@ def subtract_matrices(
         f"[bold green]Matrix B:[/bold green] {matrix_b}\n"
         f"[bold yellow]Result:[/bold yellow] {result} :smile:"
     )
+
+
+@matrix_commands.command("inverse")
+def inverse_matrix(
+    matrix: Annotated[
+        str, typer.Argument(help="Use format: [[1,2,3],[4,0,6],[7,8,9]]")
+    ],
+    sym_args: Annotated[bool, typer.Option(help="Use symbolic arguments")] = False,
+    sym_res: Annotated[bool, typer.Option(help="Use symbolic calculation")] = True,
+):
+    parsed = args_utils.parse_2d_list_from_str(matrix, sym_args)
+    result = matrix_funcs.inverse(parsed, sym_res)
+    print(
+        f"[bold green]Matrix:[/bold green] {matrix}\n[bold yellow]Inverse:[/bold yellow] {result} :smile:"
+    )

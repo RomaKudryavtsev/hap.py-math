@@ -79,3 +79,13 @@ def multiply(matrix_a, matrix_b, sym_res: bool | None = False):
         numpy_matrix_a = numpy.array(matrix_a)
         numpy_matrix_b = numpy.array(matrix_b)
         return numpy.dot(numpy_matrix_a, numpy_matrix_b)
+
+
+def inverse(matrix, sym_res: bool | None = False):
+    matrix = _validate_sq_matrix(matrix)
+    if sym_res:
+        sympy_matrix = sympy.Matrix(matrix)
+        return sympy_matrix.inv()
+    else:
+        numpy_matrix = numpy.array(matrix)
+        return numpy.linalg.inv(numpy_matrix)
